@@ -1,2 +1,2 @@
 #!/bin/bash
-ls -l $(pwd)
+echo "#$(basename "$(pwd)")#"; ls -p | grep -v '/'
