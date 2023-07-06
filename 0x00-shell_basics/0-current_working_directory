@@ -1,2 +1,2 @@
 #!/bin/bash
-echo "r4rtrdrdhhr5eh56"
+echo "${0}"
