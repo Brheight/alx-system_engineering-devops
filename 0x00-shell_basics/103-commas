@@ -1,2 +1,2 @@
 #!/bin/bash
-ls -A1p | awk '{a[NR]=$0} END{print a[2] ", " a[1] (NR>2 ? RS : "")} NR>2{print a[NR]}' RS=', '
+ls -a1p | grep -v '^\.\?$' | LC_COLLATE=C sort -df | awk '{ printf "%s, ", $0 } END { print "" }' | sed 's/\.\///' | sed '1s/^/\/, /' | sed 's/, $/\n/'
