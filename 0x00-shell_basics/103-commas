@@ -1,2 +1,2 @@
 #!/bin/bash
-ls -1Ap | LC_COLLATE=C sort -df | tr '\n' ','
+ls -ap1 | sort -d --ignore='.' --ignore='..' -k1.1,1.1n -k1.1,1.1
