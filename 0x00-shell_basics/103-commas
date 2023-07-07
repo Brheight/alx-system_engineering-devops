@@ -1,2 +1,2 @@
 #!/bin/bash
-ls -a1p | grep -v '^\.\?$' | LC_COLLATE=C sort -df | awk 'BEGIN{ORS=", "} {a[NR]=$0} END{print "./, ../,", a[3], ",", a[4]}' | sed 's/, $/\n/'
+ls -a1p | grep -v '^\.\?$' | LC_COLLATE=C sort -df | awk '{a[NR]=$0} END {for (i=3; i<=NR; i++) printf "%s, ", a[i]; print ""}' | sed 's/, $/\n/'
