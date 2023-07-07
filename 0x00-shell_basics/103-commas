@@ -1,2 +1,2 @@
 #!/bin/bash
-ls -ap1 | sort -d --ignore='.' --ignore='..' -k1.1,1.1n -k1.1,1.1
+ls -1Ap | sort -df | tr '\n' ',' | sed 's/,$/\n/'
