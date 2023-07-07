@@ -1,2 +1,2 @@
 #!/bin/bash
-(ls -a1p | awk '!/^\.\.?$/' | LC_COLLATE=C sort -df | awk 'BEGIN{ORS=", "} {a[NR]=$0} END{print "./", "../", a[3], a[4]; for(i=5;i<=NR;i++) print a[i]}'; echo) | tr -d ' '
+ls -a1p | awk '!/^\.\.?$/' | LC_COLLATE=C sort -df | awk 'BEGIN{ORS=", "} {a[NR]=$0} END{print "./", "../", a[3], a[4]; for(i=5;i<=NR;i++) print a[i]}' | sed 's/, $/\n/' | tr -d ';'
