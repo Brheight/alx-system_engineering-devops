@@ -1,2 +1,2 @@
 #!/bin/bash
-ls -a1p | grep -v '^\.\?$' | LC_COLLATE=C sort -df | awk '{ printf "%s, ", $0 } END { print "" }' | sed 's/, $/\n/'
+ls -A1p | grep -v '^\.\?$' | LC_COLLATE=C sort -df | awk '{ printf "%s, ", $0 } END { printf "\b\b\n" }'
