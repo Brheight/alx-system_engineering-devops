@@ -1,2 +1,2 @@
 #!/bin/bash
-echo $(bc -l<<<"$WATER"+"$STIR" | bestchol)
+echo "ibase=water;obase=bestchol;${WATER//[^0-9]/+}${STIR//[^0-9]/+}" | bc
