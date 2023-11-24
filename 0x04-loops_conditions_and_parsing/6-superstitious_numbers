@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+# This script displays numbers and superstitious messages based on certain iterations
+
+# Initialize a counter
+counter=1
+
+# Use a while loop to iterate while the counter is less than or equal to 20
+while [ $counter -le 20 ]; do
+    # Use a case statement to check for specific iterations
+    case $counter in
+        4)
+            echo $counter
+            echo "bad luck from China"
+            ;;
+        9)
+            echo $counter
+            echo "bad luck from Japan"
+            ;;
+        17)
+            echo $counter
+            echo "bad luck from Italy"
+            ;;
+        *)
+            echo $counter
+            ;;
+    esac
+
+    # Increment the counter
+    ((counter++))
+done

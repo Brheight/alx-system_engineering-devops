@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+# This script displays the time for 12 hours and 59 minutes
+
+# Initialize variables
+hour=0
+
+# Use a while loop to iterate over hours
+while [ $hour -lt 12 ]; do
+    echo "Hour: $hour"
+    
+    # Use a nested while loop to iterate over minutes
+    minute=1
+    while [ $minute -le 59 ]; do
+        echo $minute
+        ((minute++))
+    done
+    
+    # Increment the hour
+    ((hour++))
+done
