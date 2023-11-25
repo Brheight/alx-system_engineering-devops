@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# This script runs indefinitely without being stopped by the user.
+
+while true; do
+    echo "Don't stop me now"
+    sleep 2
+done
