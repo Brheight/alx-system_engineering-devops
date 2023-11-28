@@ -1,23 +1,11 @@
 #!/usr/bin/env ruby
 
-def match_regex(pattern, text):
-    if re.search(pattern, text):
-        print(text)
-    else:
-        print("")
+pattern = Regexp.new(/(\w+)a(\w+)\w+a(\w+)a(\w+)/)
 
-patterns = [
-    r"a(\w+)a",
-    r"(\w+)a(\w+)",
-    r"a(\w+)a(\w+)a",
-]
+input = ARGV[0]
 
-texts = [
-    "banana",
-    "cataracts",
-    "alligator",
-]
-
-for pattern in patterns:
-    for text in texts:
-        match_regex(pattern, text)
+if pattern.match(input)
+  puts input
+else
+  puts ""
+end

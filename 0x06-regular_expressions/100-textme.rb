@@ -8,13 +8,32 @@ flags_regex = /flags:(.+)]/
 # Open the log file for reading
 File.open('log.txt', 'r') do |file|
   file.each_line do |line|
-    # Extract sender, receiver, and flags using regex
-    sender = line.match(sender_regex)[1]
-    receiver = line.match(receiver_regex)[1]
-    flags = line.match(flags_regex)[1]
+    # Initialize variables to handle potential missing values
+    sender = nil
+    receiver = nil
+    flags = nil
 
-    # Format the extracted information
-    output = "[#{sender}],[#{receiver}],[#{flags}]"
+    # Extract sender, receiver, and flags using regex
+    begin
+      sender = line.match(sender_regex)[1]
+    rescue NoMethodError
+      # Sender information not found
+    end
+
+    begin
+      receiver = line.match(receiver_regex)[1]
+    rescue NoMethodError
+      # Receiver information not found
+    end
+
+    begin
+      flags = line.match(flags_regex)[1]
+    rescue NoMethodError
+      # Flags information not found
+    end
+
+    # Format the extracted information, handling potential missing values
+    output = "[#{sender || 'Unknown'},#{receiver || 'Unknown'},#{flags || 'Unknown'}]"
 
     # Print the formatted information
     puts output
