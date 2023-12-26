@@ -1,0 +1,56 @@
+Server IP: 8.8.8.8
+Domain Name: foobar.com
+DNS Record: A record for www pointing to 8.8.8.8
+
+Components:
+
+Web Server (Nginx):
+
+Role: Manages incoming HTTP requests, serves static content, and acts as a reverse proxy for the application server.
+Communication: Interacts with the user's computer over HTTP/HTTPS.
+Application Server:
+
+Role: Executes application code, processing dynamic content.
+Communication: Interacts with the web server using a specified protocol (e.g., FastCGI) or via local sockets.
+Application Files (Code Base):
+
+Role: Contains the source code and assets necessary for running the web application.
+Location: Stored on the server file system, accessible by the application server.
+Database (MySQL):
+
+Role: Stores and manages application data.
+Communication: The application server communicates with the database using the MySQL protocol.
+Specifics:
+
+What is a Server:
+
+A physical or virtual machine providing services or resources to other computers (clients) over a network.
+Role of the Domain Name:
+
+Provides a human-readable way to access the web application instead of using the IP address.
+Type of DNS Record www is in www.foobar.com:
+
+A record, directly mapping the www subdomain to the server's IP address.
+Role of the Web Server:
+
+Handles HTTP requests, serves static content, and acts as a reverse proxy for dynamic content.
+Role of the Application Server:
+
+Executes application code, processes dynamic content, and communicates with the database.
+Role of the Database:
+
+Stores and manages application data, providing a structured way for data storage and retrieval.
+Communication with the User's Computer:
+
+Communication occurs over HTTP/HTTPS. The web server handles incoming requests and sends back responses to the user's browser.
+Issues:
+
+Single Point of Failure (SPOF):
+
+The entire infrastructure relies on a single server, leading to unavailability if it fails.
+Downtime during Maintenance:
+
+Deploying new code or performing maintenance on the web server requires restarting, causing downtime for users.
+Limited Scalability:
+
+The infrastructure may struggle with a significant increase in incoming traffic, lacking scaling options like load balancing or component distribution.
