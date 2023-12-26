@@ -1,0 +1,73 @@
+**Server Configuration:**
+
+**Server 1 (Web Server):**
+- Hosts Nginx to handle HTTP requests, serve static content, and act as a reverse proxy.
+- Stores application files.
+
+**Server 2 (Application Server):**
+- Executes the application code and processes dynamic content.
+- Communicates with the database.
+
+**Server 3 (Database):**
+- Hosts MySQL to store and manage the application's data.
+
+**Load Balancer (HAproxy):**
+- Distributes incoming traffic across multiple servers to improve performance and ensure high availability.
+
+**Components:**
+
+**Web Server (Nginx):**
+- Handles HTTP requests and serves static content.
+- Acts as a reverse proxy, forwarding dynamic content requests to the application server.
+
+**Application Server:**
+- Executes the application code.
+- Processes dynamic content and communicates with the database.
+
+**Load Balancer (HAproxy):**
+
+**Why Added:**
+- Distributes incoming traffic evenly across multiple servers to prevent overloading a single server and improve performance.
+- Enhances high availability by directing traffic only to healthy servers.
+
+**Distribution Algorithm:**
+- Configured with a round-robin algorithm, sending requests sequentially to each server in turn.
+
+**Active-Active or Active-Passive Setup:**
+- Configured with an Active-Active setup.
+  
+**Explanation:**
+- All servers actively handle requests, sharing the traffic load.
+- In an Active-Passive setup, only one server is active, and others act as backups.
+
+**Database (MySQL):**
+
+**Why Added:**
+- Stores and manages the application's data.
+
+**Primary-Replica (Master-Slave) Cluster:**
+- Configured as a Primary-Replica cluster.
+
+**How It Works:**
+- Primary (Master) node handles write operations.
+- Replica (Slave) nodes replicate data from the Primary and handle read operations.
+
+**Difference Between Primary and Replica Nodes:**
+- Primary handles write operations, ensuring data consistency.
+- Replicas handle read operations, distributing the read load and providing fault tolerance.
+
+**Issues:**
+
+**Single Point of Failure (SPOF):**
+- The web server, application server, and database each remain a potential single point of failure.
+- Implementing redundancy (additional servers) for each component would improve reliability.
+
+**Security Issues:**
+- No firewall mentioned, posing a security risk.
+- HTTPS is not implemented, exposing data to potential interception.
+  
+**To address, consider adding firewalls and implementing HTTPS for secure data transfer.**
+
+**No Monitoring:**
+- Lack of monitoring tools poses challenges in identifying and addressing issues promptly.
+- Implementing monitoring tools can help in proactively managing the infrastructure.
