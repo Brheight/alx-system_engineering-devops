@@ -1,0 +1,53 @@
+**Server Overview:**
+- **Server 1 (Web Server):**
+  - Hosts Nginx to manage HTTP/HTTPS requests, serve static content, and act as a secure reverse proxy.
+  - SSL certificate installed for serving encrypted traffic.
+
+- **Server 2 (Application Server):**
+  - Executes the application code securely.
+  - Communicates with the database using secure protocols.
+
+- **Server 3 (Database):**
+  - Hosts MySQL securely to store and manage the application's data.
+
+**Security Measures:**
+1. **Firewalls:**
+   - **Why Added:**
+      - Controls and monitors incoming and outgoing network traffic, providing an additional layer of security.
+      - Prevents unauthorized access and potential attacks.
+
+2. **SSL Certificate:**
+   - **Why Added:**
+      - Serves traffic over HTTPS, encrypting data in transit.
+      - Ensures secure communication between the user's browser and the web server.
+
+**Monitoring:**
+3. **Monitoring Clients (Sumo Logic):**
+   - **Why Added:**
+      - Monitors and collects data on system performance, errors, and other metrics.
+      - Aids in identifying issues, ensuring proactive management of the infrastructure.
+
+   - **How Data is Collected:**
+      - Monitoring clients collect data on various aspects, such as server performance, application logs, and security events.
+      - Data is sent to a centralized monitoring service like Sumo Logic for analysis and visualization.
+
+   - **Monitoring Web Server QPS:**
+      - To monitor Web Server QPS (Queries Per Second):
+         - Sets up monitoring for incoming requests on the web server.
+         - Utilizes monitoring tools to track and analyze request rates.
+
+**Issues:**
+1. **Terminating SSL at the Load Balancer Level:**
+   - **Why an Issue:**
+      - While terminating SSL at the load balancer improves efficiency, it poses a security risk.
+      - SSL termination at the load balancer means that data between the load balancer and the servers is unencrypted, potentially exposing sensitive information.
+
+2. **Single MySQL Server Accepting Writes:**
+   - **Why an Issue:**
+      - A single MySQL server accepting writes is a potential single point of failure.
+      - Lacks redundancy and high availability, making the system vulnerable to downtime if the MySQL server fails.
+
+3. **Identical Components on All Servers:**
+   - **Why a Problem:**
+      - Having identical components on all servers may lead to uniform vulnerabilities.
+      - If a flaw or issue affects one server, it may impact all others. Diversifying components or using redundancy can mitigate this risk.
