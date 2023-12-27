@@ -1,47 +1,14 @@
-# OSI Model Overview
+#!/usr/bin/env bash
+# Script: 0-OSI_model
+# Description: This script provides an overview of the OSI model and focuses on the Transport and Network layers.
 
-The OSI (Open Systems Interconnection) model is a conceptual framework that helps understand the functions of a telecommunication system. It divides the communication process into seven distinct layers, each responsible for specific tasks.
+# Your script content goes here
+# ...
 
-## Layers of the OSI Model
+# Example for multiple-choice question
+# What is the OSI model?
+# 1. Set of specifications that network hardware manufacturers must respect
+# 2. The OSI model is a conceptual model that characterizes the communication functions of a telecommunication system without regard to their underlying internal structure and technology
+# 3. The OSI model is a model that characterizes the communication functions of a telecommunication system with a strong regard for their underlying internal structure and technology
 
-1. **Layer 1 - Physical:**
-   - Concerned with the transmission of raw binary data over physical mediums.
-   - Examples: Cables, connectors, electrical signals.
-
-2. **Layer 2 - Data Link:**
-   - Responsible for creating a reliable link between two directly connected nodes.
-   - Examples: MAC addresses, switches.
-
-3. **Layer 3 - Network:**
-   - Handles the routing of data between different networks.
-   - Examples: IP addresses, routers.
-
-4. **Layer 4 - Transport:**
-   - Ensures end-to-end communication and data flow control.
-   - Examples: TCP (Transmission Control Protocol), UDP (User Datagram Protocol).
-
-5. **Layer 5 - Session:**
-   - Manages sessions or connections between applications.
-   - Examples: NetBIOS, RPC.
-
-6. **Layer 6 - Presentation:**
-   - Deals with data translation, encryption, and compression.
-   - Examples: SSL/TLS, JPEG, GIF.
-
-7. **Layer 7 - Application:**
-   - Provides a network interface for applications.
-   - Examples: HTTP, FTP, SMTP.
-
-## Project Focus
-
-In this project, we will particularly focus on two crucial layers of the OSI model:
-
-- **Transport Layer (Layer 4):**
-  - Understanding and implementation of TCP and UDP.
-
-- **Network Layer (Layer 3):**
-  - Understanding and usage of IP (Internet Protocol) and ICMP (Internet Control Message Protocol).
-
-## Conclusion
-
-The OSI model is a valuable framework for comprehending network communication. By understanding each layer's functions, we can design, troubleshoot, and optimize networks effectively.
+echo "2"
