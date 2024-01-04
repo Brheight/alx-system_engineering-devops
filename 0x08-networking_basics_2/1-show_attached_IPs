@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# This script displays all active IPv4 IPs associated with the local hostname
+
+# Use hostname command to obtain the IP addresses associated with the local hostname
+hostname -I
