@@ -1,8 +1,3 @@
 #!/usr/bin/env bash
 # This script listens on port 98 on localhost
-
-# Set the port number
-port=98
-
-# Start listening on the specified port
-sudo nc -l -p $port
+sudo nc -l -p 98
