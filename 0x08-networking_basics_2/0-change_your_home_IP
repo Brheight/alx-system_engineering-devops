@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# This script configures the local host and facebook.com IP addresses, considering Docker's behavior
+
+# Copy /etc/hosts to a temporary file in the home directory
+cp /etc/hosts ~/hosts.new
+
+# Use sed to make the necessary modifications to the temporary file
+sed -i 's/127.0.0.1/127.0.0.2/' ~/hosts.new
+sed -i 's/facebook.com/8.8.8.8/' ~/hosts.new
+
+# Overwrite /etc/hosts with the modified temporary file, forcefully (-f) to avoid Docker interference
+sudo cp -f ~/hosts.new /etc/hosts
+
+# Display success message
+echo "IP addresses configured successfully!"
