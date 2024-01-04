@@ -1,14 +1,4 @@
 #!/usr/bin/env bash
-# Script: 0-OSI_model
-# Description: This script provides an overview of the OSI model and focuses on the Transport and Network layers.
-
-# Your script content goes here
-# ...
-
-# Example for multiple-choice question
-# What is the OSI model?
-# 1. Set of specifications that network hardware manufacturers must respect
-# 2. The OSI model is a conceptual model that characterizes the communication functions of a telecommunication system without regard to their underlying internal structure and technology
-# 3. The OSI model is a model that characterizes the communication functions of a telecommunication system with a strong regard for their underlying internal structure and technology
-
-echo "2"
+# OSI model
+2
+2
