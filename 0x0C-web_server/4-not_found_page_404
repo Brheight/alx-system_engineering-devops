@@ -1,0 +1,44 @@
+#!/usr/bin/env bash
+# This script configures Nginx to have a custom 404 page.
+
+# Check if Nginx is installed
+if ! command -v nginx &> /dev/null
+then
+    # Install Nginx if not installed
+    apt-get update -y
+    apt-get install nginx -y
+fi
+
+# Create a custom HTML page for 404 errors
+echo "<html>
+<head>
+    <title>404 Not Found</title>
+</head>
+<body>
+    <h1>404 Not Found</h1>
+    <p>Ceci n'est pas une page</p>
+</body>
+</html>" > /usr/share/nginx/html/404.html
+
+# Configure Nginx for custom 404 page
+echo "server {
+    listen 80;
+    server_name localhost;
+
+    error_page 404 /404.html;
+    location = /404.html {
+        root /usr/share/nginx/html;
+        internal;
+    }
+
+    location / {
+        root /usr/share/nginx/html;
+        index index.html;
+    }
+}" > /etc/nginx/sites-available/default
+
+# Restart Nginx without using systemctl
+kill -s HUP $(pgrep -f "nginx: master process")
+
+# Output success message
+echo "Nginx configured for custom 404 page. 404 errors now display 'Ceci n'est pas une page.'"

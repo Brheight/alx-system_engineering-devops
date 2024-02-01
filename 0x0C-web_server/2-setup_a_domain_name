@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# This script provides the configured domain name and sets up DNS records.
+
+# Domain name obtained from the free .tech domain registration
+DOMAIN_NAME="yourdomain.tech"
+
+# Update DNS records with an A entry pointing to web-01 IP address
+echo "@ IN A WEB01_IP_ADDRESS" > /etc/bind/db.$DOMAIN_NAME
+
+# Restart BIND9 without using systemctl
+service bind9 restart
+
+# Output the configured domain name
+echo $DOMAIN_NAME
