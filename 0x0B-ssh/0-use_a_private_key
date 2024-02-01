@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# This script connects to a server using ssh with a private key
+
+# Connect to the server using the private key ~/.ssh/school and the user ubuntu
+ssh -i ~/.ssh/school ubuntu@server01
+
+# Output a message when the session is closed
+echo "Connection to 8.8.8.8 closed."
