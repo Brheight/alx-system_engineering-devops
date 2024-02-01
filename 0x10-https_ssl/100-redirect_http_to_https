@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+# HAProxy configuration to redirect HTTP traffic to HTTPS
+
+# Frontend configuration
+frontend www-frontend
+    bind *:80
+    mode http
+    option forwardfor
+
+    # Redirect HTTP requests to HTTPS
+    redirect scheme https code 301 if !{ ssl_fc }
+
+# Backend configuration
+backend www-backend
+    mode http
+    balance roundrobin
+    option httpclose
+    option forwardfor
+    server web-server-1 web-01:80 check
+    server web-server-2 web-02:80 check
