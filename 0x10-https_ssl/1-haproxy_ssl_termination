@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+# HAProxy configuration for SSL termination
+
+# Frontend configuration
+frontend www-frontend
+    bind *:80
+    bind *:443 ssl crt /etc/haproxy/certs/www.holberton.online.pem
+    mode http
+    option forwardfor
+    reqadd X-Forwarded-Proto:\ https
+
+    # Redirect HTTP requests to HTTPS
+    redirect scheme https code 301 if ! ssl_fc
+
+# Backend configuration
+backend www-backend
+    mode http
+    balance roundrobin
+    option httpclose
+    option forwardfor
+    server web-server-1 web-01:80 check
+    server web-server-2 web-02:80 check

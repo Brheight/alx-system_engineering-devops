@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+# This script displays information about subdomains of a given domain.
+
+# Function to display information about a subdomain
+display_info() {
+    subdomain="$1"
+    domain="$2"
+    result=$(dig "$subdomain.$domain" +short)
+    record_type=$(dig "$subdomain.$domain" | awk '/ANSWER SECTION:/{getline; print $4}')
+    echo "The subdomain $subdomain is a $record_type record and points to $result"
+}
+
+# Main script
+if [ "$#" -eq 1 ]; then
+    # Display information for default subdomains
+    display_info www "$1"
+    display_info lb-01 "$1"
+    display_info web-01 "$1"
+    display_info web-02 "$1"
+elif [ "$#" -eq 2 ]; then
+    # Display information for specified subdomain
+    display_info "$2" "$1"
+else
+    echo "Usage: $0 <domain> [subdomain]"
+fi
