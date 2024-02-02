@@ -1,0 +1,43 @@
+#!/usr/bin/env bash
+# This script installs and configures HAProxy on a new Ubuntu machine.
+
+# Install HAProxy
+sudo apt-get update
+sudo apt-get install -y haproxy
+
+# Configure HAProxy
+haproxy_config="/etc/haproxy/haproxy.cfg"
+
+# Backup the original configuration file
+sudo cp "$haproxy_config" "$haproxy_config.bak"
+
+# Update the configuration file with roundrobin algorithm and backend servers
+sudo bash -c "cat > $haproxy_config <<EOF
+global
+    daemon
+    maxconn 256
+
+defaults
+    mode http
+    timeout connect 5000ms
+    timeout client 50000ms
+    timeout server 50000ms
+
+frontend http_front
+    bind *:80
+    default_backend http_back
+
+backend http_back
+    balance roundrobin
+    server web-01 [STUDENT_ID]-web-01:80 check
+    server web-02 [STUDENT_ID]-web-02:80 check
+EOF"
+
+# Restart HAProxy to apply the changes
+sudo systemctl restart haproxy
+
+# Enable HAProxy to start on boot
+sudo systemctl enable haproxy
+
+# Exit script
+exit 0
