@@ -1,0 +1,37 @@
+# Understanding the Journey: What Happens When You Type https://www.google.com and Press Enter?
+
+When you type "https://www.google.com" into your browser and hit Enter, a complex sequence of events is set in motion. Let's dive into the intricacies of this process to understand what happens behind the scenes.
+
+## DNS Request
+
+The journey begins with a Domain Name System (DNS) request. The browser needs to find the IP address associated with the domain "www.google.com." It queries a DNS server to resolve the domain name to an IP address.
+
+## TCP/IP
+
+Once the IP address is obtained, the browser initiates a connection using the Transmission Control Protocol (TCP) and Internet Protocol (IP). TCP ensures reliable and ordered delivery of data, while IP handles addressing and routing.
+
+## Firewall
+
+Before reaching the destination, the data packets may pass through a firewall. Firewalls act as a barrier, filtering and controlling network traffic based on predefined security rules. They play a crucial role in protecting the network from unauthorized access.
+
+## HTTPS/SSL
+
+The connection between your browser and the Google server is secured through HTTPS (Hypertext Transfer Protocol Secure) using SSL (Secure Socket Layer) or its successor, TLS (Transport Layer Security). This encryption ensures that the data exchanged between you and the server remains confidential and secure.
+
+## Load-Balancer
+
+Large-scale websites like Google often utilize load balancers to distribute incoming network traffic across multiple servers. This ensures optimal resource utilization, high availability, and improved performance. Load balancers enhance the overall reliability and scalability of the service.
+
+## Web Server
+
+Upon reaching Google's servers, the request is directed to a web server. Web servers handle HTTP requests, process them, and generate an appropriate response. In this case, the server at "www.google.com" responds with the Google homepage.
+
+## Application Server
+
+Behind the scenes, complex web applications may require additional processing. Application servers execute application logic, handle business rules, and generate dynamic content. Google's search functionality, for example, relies on sophisticated algorithms running on application servers.
+
+## Database
+
+For services involving data retrieval or storage, like a search engine, a database is crucial. The application server communicates with the database server to retrieve relevant information. In Google's case, vast databases store and retrieve search results based on your query.
+
+In summary, typing "https://www.google.com" and pressing Enter triggers a series of events involving DNS resolution, TCP/IP connections, firewall checks, HTTPS encryption, load balancing, web servers, application servers, and databases. Understanding this intricate process sheds light on the remarkable complexity behind the seamless user experience we enjoy every day
