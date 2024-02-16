@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# This script configures Nginx to run as the nginx user on port 8080
+
+sed -i 's/user  nginx/user  root/g' /etc/nginx/nginx.conf
+nginx -g "daemon off" -c /etc/nginx/nginx.conf
