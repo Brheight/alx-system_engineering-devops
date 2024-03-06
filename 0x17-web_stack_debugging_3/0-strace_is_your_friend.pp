@@ -1,3 +1,5 @@
+# 0-strace_is_your_friend.pp
+
 package { 'strace':
   ensure => installed,
 }
@@ -8,8 +10,8 @@ exec { 'strace_apache':
   refreshonly => true,
 }
 
-exec { 'fix_apache_issue':
-  command     => '/bin/echo "Fixed the issue"',
+exec { 'fix-wordpress':
+  command     => 'echo "Fixing WordPress"',
   path        => '/usr/bin:/bin',
   refreshonly => true,
   subscribe   => Exec['strace_apache'],
@@ -17,5 +19,5 @@ exec { 'fix_apache_issue':
 
 service { 'apache2':
   ensure    => running,
-  subscribe => Exec['fix_apache_issue'],
+  subscribe => Exec['fix-wordpress'],
 }
