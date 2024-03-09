@@ -11,8 +11,7 @@ def top_ten(subreddit):
     If not a valid subreddit, prints None.
     """
     url = f'https://www.reddit.com/r/{subreddit}/hot.json'
-    headers = {'User-Agent': 'MyRedditApp/1.0 (by /u/ctbrjg1067)'}  # Replace with your Reddit username
-
+    headers = {'User-Agent': 'MyRedditApp/1.0 (by /u/ctbrjg1067)'}
     response = requests.get(url, headers=headers)
 
     if response.status_code == 200:
@@ -27,14 +26,6 @@ def top_ten(subreddit):
             title = post['data']['title']
             print(f"{i}. {title}")
     elif response.status_code == 404:
-        print(f"Subreddit '{subreddit}' not found.")
+        print(None)
     else:
         print(f"Error: Unable to fetch data. Status Code: {response.status_code}")
-
-if __name__ == '__main__':
-    import sys
-
-    if len(sys.argv) < 2:
-        print("Please pass an argument for the subreddit to search.")
-    else:
-        top_ten(sys.argv[1])
