@@ -40,14 +40,3 @@ def print_results(count_dict):
     sorted_items = sorted(count_dict.items(), key=lambda x: (-x[1], x[0]))
     for word, count in sorted_items:
         print(f'{word}: {count}')
-
-if __name__ == '__main__':
-    import sys
-
-    if len(sys.argv) < 3:
-        print("Usage: {} <subreddit> <list of keywords>".format(sys.argv[0]))
-        print("Ex: {} programming 'python java javascript'".format(sys.argv[0]))
-    else:
-        subreddit = sys.argv[1]
-        word_list = sys.argv[2].split()
-        count_words(subreddit, word_list)
