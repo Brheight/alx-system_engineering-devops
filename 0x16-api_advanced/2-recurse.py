@@ -15,7 +15,7 @@ def recurse(subreddit, hot_list=[], after=None):
     else:
         url = f'https://www.reddit.com/r/{subreddit}/hot.json?after={after}'
 
-    headers = {'User-Agent': 'MyRedditApp/1.0 (by /u/ctbrjg1067)'}  # Replace with your Reddit username
+    headers = {'User-Agent': 'MyRedditApp/1.0 (by /u/ctbrjg1067)'}
 
     response = requests.get(url, headers=headers)
 
@@ -41,16 +41,3 @@ def recurse(subreddit, hot_list=[], after=None):
     else:
         print(f"Error: Unable to fetch data. Status Code: {response.status_code}")
         return None
-
-if __name__ == '__main__':
-    import sys
-
-    if len(sys.argv) < 2:
-        print("Please pass an argument for the subreddit to search.")
-    else:
-        result = recurse(sys.argv[1])
-        if result is not None:
-            print(len(result))
-        else:
-            print("None")
-
